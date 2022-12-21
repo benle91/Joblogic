@@ -5,10 +5,12 @@ import hien.android.joblogic.domain.base.BaseFlowUseCase
 import hien.android.joblogic.domain.base.RepositoryResult
 import hien.android.joblogic.domain.base.UseCaseResult
 import hien.android.joblogic.domain.repository.SellRepository
+import kotlinx.coroutines.CoroutineDispatcher
 
 class GetItemsToSellUseCase constructor(
-    private val repository: SellRepository
-) : BaseFlowUseCase<String, List<ItemToSell>, List<ItemToSell>>() {
+    private val repository: SellRepository,
+    private val executionThread: CoroutineDispatcher? = null
+) : BaseFlowUseCase<String, List<ItemToSell>, List<ItemToSell>>(executionThread) {
 
     override suspend fun execute(parameters: String): RepositoryResult<List<ItemToSell>> {
         return repository.getItemsToSell()

@@ -5,10 +5,12 @@ import hien.android.joblogic.domain.base.BaseFlowUseCase
 import hien.android.joblogic.domain.base.RepositoryResult
 import hien.android.joblogic.domain.base.UseCaseResult
 import hien.android.joblogic.domain.repository.ApiRepository
+import kotlinx.coroutines.CoroutineDispatcher
 
 class GetItemsToCallUseCase constructor(
-    private val repository: ApiRepository
-) : BaseFlowUseCase<String, List<ItemCallResponse>, List<ItemCallResponse>>() {
+    private val repository: ApiRepository,
+    private val executionThread: CoroutineDispatcher? = null
+) : BaseFlowUseCase<String, List<ItemCallResponse>, List<ItemCallResponse>>(executionThread) {
 
     override suspend fun execute(parameters: String): RepositoryResult<List<ItemCallResponse>> {
         return repository.getItemsToCall()

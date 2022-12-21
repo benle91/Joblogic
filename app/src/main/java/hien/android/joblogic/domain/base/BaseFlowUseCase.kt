@@ -1,9 +1,11 @@
 package hien.android.joblogic.domain.base
 
+import hien.android.joblogic.core.executor.PostExecutionThread
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
 
-abstract class BaseFlowUseCase<in P, Res, R> {
+abstract class BaseFlowUseCase<in P, Res, R>(private val executionThread: CoroutineDispatcher?) {
     operator fun invoke(parameters: P): Flow<UseCaseResult<R>> = flow {
         emit(UseCaseResult.Loading)
 
@@ -11,7 +13,7 @@ abstract class BaseFlowUseCase<in P, Res, R> {
             is RepositoryResult.Success -> emit(onSuccess(apiResponse))
             is RepositoryResult.Error -> emit(onError(apiResponse.error))
         }
-    }.catch { e -> emit(UseCaseResult.ErrorThrowable(e)) }.flowOn(Dispatchers.IO)
+    }.catch { e -> emit(UseCaseResult.ErrorThrowable(e)) }.flowOn(executionThread?:Dispatchers.IO)
 
     protected abstract suspend fun execute(parameters: P): RepositoryResult<Res>
 
