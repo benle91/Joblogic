@@ -1,28 +1,28 @@
-package hien.android.joblogic.presentation.fragment.call
+package hien.android.joblogic.presentation.fragment.sell
 
 import android.widget.TextView
 import androidx.core.view.isGone
 import hien.android.joblogic.R
-import hien.android.joblogic.databinding.FragmentCallBinding
+import hien.android.joblogic.databinding.FragmentSellBinding
 import hien.android.joblogic.presentation.activity.MainViewModel
-import hien.android.joblogic.presentation.adapter.CallAdapter
+import hien.android.joblogic.presentation.adapter.SellAdapter
 import hien.android.joblogic.presentation.base.BaseBindingFragment
 import org.koin.androidx.viewmodel.ext.android.activityViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.net.UnknownHostException
 
-class CallFragment : BaseBindingFragment<FragmentCallBinding>() {
+class SellFragment : BaseBindingFragment<FragmentSellBinding>() {
 
     companion object {
-        fun newInstance() = CallFragment()
+        fun newInstance() = SellFragment()
     }
 
     override val layoutResourceId: Int
-        get() = R.layout.fragment_call
+        get() = R.layout.fragment_sell
 
-    private val mViewModel by viewModel<CallViewModel>()
+    private val mViewModel by viewModel<SellViewModel>()
     private val mMainViewModel by activityViewModel<MainViewModel>()
-    private val mAdapter by lazy { CallAdapter() }
+    private val mAdapter by lazy { SellAdapter() }
 
     override fun onViewBindingCreated() {
         handleEvent()
@@ -37,8 +37,8 @@ class CallFragment : BaseBindingFragment<FragmentCallBinding>() {
     }
 
     private fun handleViewModel() = with(mViewModel) {
-        getItemsToCall()
-        itemsToCallLiveData.observe(viewLifecycleOwner) {
+        getItemsToSell()
+        itemsToSellLiveData.observe(viewLifecycleOwner) {
             if (it.isEmpty()) {
                 binding?.tvError?.isGone = false
                 binding?.tvError?.setText("Empty Records", TextView.BufferType.NORMAL)
@@ -60,5 +60,4 @@ class CallFragment : BaseBindingFragment<FragmentCallBinding>() {
         rvList.setHasFixedSize(true)
         rvList.adapter = mAdapter
     }
-
 }

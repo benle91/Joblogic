@@ -22,4 +22,14 @@ interface BaseHandleDataResponseSupporter {
         }
     }
 
+    suspend fun <_Response> executeDao(api: suspend () -> _Response): RepositoryResult<_Response> {
+        return try {
+            val response = api.invoke()
+            RepositoryResult.Success(response)
+        } catch (ex: Exception) {
+            // Unknown
+            RepositoryResult.Error(ex)
+        }
+    }
+
 }

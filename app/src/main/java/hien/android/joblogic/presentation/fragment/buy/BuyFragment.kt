@@ -1,28 +1,28 @@
-package hien.android.joblogic.presentation.fragment.call
+package hien.android.joblogic.presentation.fragment.buy
 
 import android.widget.TextView
 import androidx.core.view.isGone
 import hien.android.joblogic.R
-import hien.android.joblogic.databinding.FragmentCallBinding
+import hien.android.joblogic.databinding.FragmentBuyBinding
 import hien.android.joblogic.presentation.activity.MainViewModel
-import hien.android.joblogic.presentation.adapter.CallAdapter
+import hien.android.joblogic.presentation.adapter.BuyAdapter
 import hien.android.joblogic.presentation.base.BaseBindingFragment
 import org.koin.androidx.viewmodel.ext.android.activityViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.net.UnknownHostException
 
-class CallFragment : BaseBindingFragment<FragmentCallBinding>() {
+class BuyFragment : BaseBindingFragment<FragmentBuyBinding>() {
 
     companion object {
-        fun newInstance() = CallFragment()
+        fun newInstance() = BuyFragment()
     }
 
     override val layoutResourceId: Int
-        get() = R.layout.fragment_call
+        get() = R.layout.fragment_buy
 
-    private val mViewModel by viewModel<CallViewModel>()
+    private val mViewModel by viewModel<BuyViewModel>()
     private val mMainViewModel by activityViewModel<MainViewModel>()
-    private val mAdapter by lazy { CallAdapter() }
+    private val mAdapter by lazy { BuyAdapter() }
 
     override fun onViewBindingCreated() {
         handleEvent()
@@ -37,8 +37,8 @@ class CallFragment : BaseBindingFragment<FragmentCallBinding>() {
     }
 
     private fun handleViewModel() = with(mViewModel) {
-        getItemsToCall()
-        itemsToCallLiveData.observe(viewLifecycleOwner) {
+        getItemsToBuy()
+        itemToBuyResponseLiveData.observe(viewLifecycleOwner) {
             if (it.isEmpty()) {
                 binding?.tvError?.isGone = false
                 binding?.tvError?.setText("Empty Records", TextView.BufferType.NORMAL)
