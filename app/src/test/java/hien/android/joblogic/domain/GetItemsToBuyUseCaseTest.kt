@@ -3,6 +3,7 @@ package hien.android.joblogic.domain
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import hien.android.joblogic.MainCoroutineRule
 import hien.android.joblogic.data.model.remote.ItemToBuyResponse
+import hien.android.joblogic.data.model.remote.ItemTransactionType
 import hien.android.joblogic.domain.base.RepositoryResult
 import hien.android.joblogic.domain.base.UseCaseResult
 import hien.android.joblogic.domain.repository.ApiRepository
@@ -34,18 +35,10 @@ class GetItemsToBuyUseCaseTest {
                 ItemToBuyResponse(
                     id = 1,
                     _name = "MacBook Pro",
-                    _price = 205000,
+                    _price = "205000",
                     _quantity = 1,
-                    type = 1
-                ),
-                ItemToBuyResponse(id = 2, _name = "iPad", _price = 20000, _quantity = 2, type = 1),
-                ItemToBuyResponse(
-                    id = 3,
-                    _name = "Power Bank",
-                    _price = 10000,
-                    _quantity = 1,
-                    type = 1
-                ),
+                    type = ItemTransactionType.BUY
+                )
             )
         )
 
