@@ -5,12 +5,11 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.Recycler
 import hien.android.joblogic.R
 import hien.android.joblogic.data.model.remote.ItemBuyResponse
 import hien.android.joblogic.databinding.ItemBuyBinding
 
-class BuyAdapter: RecyclerView.Adapter<BuyViewHolder>() {
+class BuyAdapter : RecyclerView.Adapter<BuyViewHolder>() {
 
     private val items = arrayListOf<ItemBuyResponse>()
 
@@ -22,7 +21,12 @@ class BuyAdapter: RecyclerView.Adapter<BuyViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BuyViewHolder {
         val binding: ViewDataBinding =
-            DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.item_buy, parent, false)
+            DataBindingUtil.inflate(
+                LayoutInflater.from(parent.context),
+                R.layout.item_buy,
+                parent,
+                false
+            )
         return BuyViewHolder(binding)
     }
 
@@ -35,7 +39,7 @@ class BuyAdapter: RecyclerView.Adapter<BuyViewHolder>() {
     }
 }
 
-class BuyViewHolder(private val binding: ViewDataBinding): RecyclerView.ViewHolder(binding.root) {
+class BuyViewHolder(private val binding: ViewDataBinding) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(item: ItemBuyResponse) {
         (binding as? ItemBuyBinding)?.run {

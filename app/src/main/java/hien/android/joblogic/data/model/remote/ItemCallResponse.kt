@@ -11,8 +11,8 @@ data class ItemCallResponse(
     private val _number: String?
 ) {
     val name: String
-    get() = _name.orEmpty()
+        get() = _name.orEmpty()
 
     val number: String
-    get() = _number.orEmpty()
+        get() = _number.orEmpty()
 }

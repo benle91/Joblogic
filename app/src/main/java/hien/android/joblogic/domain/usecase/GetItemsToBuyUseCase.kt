@@ -1,7 +1,6 @@
 package hien.android.joblogic.domain.usecase
 
 import hien.android.joblogic.data.model.remote.ItemBuyResponse
-import hien.android.joblogic.data.model.remote.ItemCallResponse
 import hien.android.joblogic.domain.base.BaseFlowUseCase
 import hien.android.joblogic.domain.base.RepositoryResult
 import hien.android.joblogic.domain.base.UseCaseResult

@@ -20,17 +20,17 @@ data class ItemBuyResponse(
      * Avoid show null when binding data
      * */
     val name: String
-    get() = _name.orEmpty()
+        get() = _name.orEmpty()
 
     /**
      * Avoid show null when binding data
      * */
     val price: String
-    get() = _price?.toString().orEmpty()
+        get() = _price?.toString().orEmpty()
 
     /**
      * Avoid show null when binding data
      * */
     val quantity: String
-    get() = _quantity?.toString().orEmpty()
+        get() = _quantity?.toString().orEmpty()
 }

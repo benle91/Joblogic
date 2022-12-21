@@ -39,6 +39,7 @@ class BuyFragment : BaseBindingFragment<FragmentBuyBinding>() {
     private fun handleViewModel() = with(mViewModel) {
         getItemsToBuy()
         itemToBuyResponseLiveData.observe(viewLifecycleOwner) {
+            binding?.pbLoading?.isGone = true
             if (it.isEmpty()) {
                 binding?.tvError?.isGone = false
                 binding?.tvError?.setText("Empty Records", TextView.BufferType.NORMAL)
@@ -48,6 +49,7 @@ class BuyFragment : BaseBindingFragment<FragmentBuyBinding>() {
             mAdapter.submitItems(it)
         }
         throwableLiveData.observe(viewLifecycleOwner) { throwable ->
+            binding?.pbLoading?.isGone = true
             binding?.tvError?.isGone = false
             binding?.tvError?.text = when (throwable) {
                 is UnknownHostException -> "No Internet!!"

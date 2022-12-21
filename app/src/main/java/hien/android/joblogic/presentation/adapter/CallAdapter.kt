@@ -6,12 +6,10 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import hien.android.joblogic.R
-import hien.android.joblogic.data.model.remote.ItemBuyResponse
 import hien.android.joblogic.data.model.remote.ItemCallResponse
-import hien.android.joblogic.databinding.ItemBuyBinding
 import hien.android.joblogic.databinding.ItemCallBinding
 
-class CallAdapter: RecyclerView.Adapter<CallViewHolder>() {
+class CallAdapter : RecyclerView.Adapter<CallViewHolder>() {
 
     private val items = arrayListOf<ItemCallResponse>()
 
@@ -23,7 +21,12 @@ class CallAdapter: RecyclerView.Adapter<CallViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CallViewHolder {
         val binding: ViewDataBinding =
-            DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.item_call, parent, false)
+            DataBindingUtil.inflate(
+                LayoutInflater.from(parent.context),
+                R.layout.item_call,
+                parent,
+                false
+            )
         return CallViewHolder(binding)
     }
 
@@ -36,7 +39,7 @@ class CallAdapter: RecyclerView.Adapter<CallViewHolder>() {
     }
 }
 
-class CallViewHolder(private val binding: ViewDataBinding): RecyclerView.ViewHolder(binding.root) {
+class CallViewHolder(private val binding: ViewDataBinding) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(item: ItemCallResponse) {
         (binding as? ItemCallBinding)?.run {

@@ -17,32 +17,32 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginVertical="4dp"
             android:text="@{`Name: ` + data.name}"
-            android:layout_marginVertical="4dp"
-            android:layout_marginHorizontal="16dp"
-            tools:text="Name: Macbook M2"/>
+            tools:text="Name: Macbook M2" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginVertical="4dp"
             android:text="@{`Price: ` + data.price}"
-            android:layout_marginVertical="4dp"
-            android:layout_marginHorizontal="16dp"
-            tools:text="Price: 100.000"/>
+            tools:text="Price: 100.000" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{`Quantity: ` + data.quantity}"
-            android:layout_marginVertical="4dp"
             android:layout_marginHorizontal="16dp"
-            tools:text="Quantity: 99"/>
+            android:layout_marginVertical="4dp"
+            android:text="@{`Quantity: ` + data.quantity}"
+            tools:text="Quantity: 99" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#4D000000"
-            android:layout_marginTop="12dp" />
+            android:layout_marginTop="12dp"
+            android:background="#4D000000" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 </layout>

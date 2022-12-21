@@ -37,12 +37,14 @@ class MainActivity : AppCompatActivity(), OnClickListener {
 
     private fun navigateToFragment(@IdRes id: Int?) {
         supportFragmentManager.commit(allowStateLoss = true) {
-            replace(R.id.fvcMain, when (id) {
-                R.id.btnBuy -> BuyFragment.newInstance()
-                R.id.btnSell -> SellFragment.newInstance()
-                R.id.btnCall -> CallFragment.newInstance()
-                else -> MainFragment()
-            }, MAIN_BACK_STACK)
+            replace(
+                R.id.fvcMain, when (id) {
+                    R.id.btnBuy -> BuyFragment.newInstance()
+                    R.id.btnSell -> SellFragment.newInstance()
+                    R.id.btnCall -> CallFragment.newInstance()
+                    else -> MainFragment()
+                }, MAIN_BACK_STACK
+            )
         }
     }
 

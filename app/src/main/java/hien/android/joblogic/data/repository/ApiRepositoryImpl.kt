@@ -1,6 +1,7 @@
 package hien.android.joblogic.data.repository
 
 import hien.android.joblogic.data.BaseHandleDataResponseSupporter
+import hien.android.joblogic.data.api.ApiService
 import hien.android.joblogic.data.model.remote.ItemBuyResponse
 import hien.android.joblogic.data.model.remote.ItemCallResponse
 import hien.android.joblogic.domain.base.RepositoryResult

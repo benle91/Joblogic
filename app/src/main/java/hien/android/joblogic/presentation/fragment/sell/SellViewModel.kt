@@ -6,10 +6,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import hien.android.joblogic.data.model.entity.ItemToSell
-import hien.android.joblogic.data.model.remote.ItemCallResponse
 import hien.android.joblogic.domain.base.onSuccess
 import hien.android.joblogic.domain.base.onThrowable
-import hien.android.joblogic.domain.usecase.GetItemsToCallUseCase
 import hien.android.joblogic.domain.usecase.GetItemsToSellUseCase
 import kotlinx.coroutines.flow.launchIn
 

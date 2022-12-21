@@ -13,5 +13,5 @@ interface ItemToSellDao {
     suspend fun getAll(): List<ItemToSell>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(vararg items: ItemToSell): Long
+    suspend fun insertAll(vararg items: ItemToSell): List<Long>
 }

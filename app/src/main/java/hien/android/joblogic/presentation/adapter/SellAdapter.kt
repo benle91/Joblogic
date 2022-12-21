@@ -7,7 +7,6 @@ import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import hien.android.joblogic.R
 import hien.android.joblogic.data.model.entity.ItemToSell
-import hien.android.joblogic.databinding.ItemBuyBinding
 import hien.android.joblogic.databinding.ItemSellBinding
 
 class SellAdapter : RecyclerView.Adapter<SellViewHolder>() {

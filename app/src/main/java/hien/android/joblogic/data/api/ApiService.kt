@@ -1,4 +1,4 @@
-package hien.android.joblogic.data.repository
+package hien.android.joblogic.data.api
 
 import hien.android.joblogic.data.model.remote.ItemBuyResponse
 import hien.android.joblogic.data.model.remote.ItemCallResponse

@@ -8,7 +8,7 @@ import hien.android.joblogic.domain.repository.SellRepository
 
 class SellRepositoryImpl constructor(
     private val dao: ItemToSellDao
-): SellRepository, BaseHandleDataResponseSupporter {
+) : SellRepository, BaseHandleDataResponseSupporter {
     override suspend fun getItemsToSell(): RepositoryResult<List<ItemToSell>> {
         return executeDao { dao.getAll() }
     }

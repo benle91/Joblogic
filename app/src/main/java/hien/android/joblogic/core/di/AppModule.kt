@@ -3,9 +3,9 @@ package hien.android.joblogic.core.di
 import androidx.room.Room
 import hien.android.joblogic.core.network.RetrofitClient
 import hien.android.joblogic.core.room.AppDatabase
+import hien.android.joblogic.data.api.ApiService
 import hien.android.joblogic.data.dao.ItemToSellDao
 import hien.android.joblogic.data.repository.ApiRepositoryImpl
-import hien.android.joblogic.data.repository.ApiService
 import hien.android.joblogic.data.repository.SellRepositoryImpl
 import hien.android.joblogic.domain.repository.ApiRepository
 import hien.android.joblogic.domain.repository.SellRepository
