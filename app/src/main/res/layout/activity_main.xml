@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="8dp"
                 android:layout_weight="1"
-                android:text="To Call" />
+                android:text="To\nCall" />
 
             <Button
                 android:id="@+id/btnBuy"
@@ -47,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="8dp"
                 android:layout_weight="1"
-                android:text="To Buy" />
+                android:text="To\nBuy" />
 
             <Button
                 android:id="@+id/btnSell"
@@ -55,7 +55,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="8dp"
                 android:layout_weight="1"
-                android:text="To Sell" />
+                android:text="To\nSell" />
 
         </LinearLayout>
 

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
@@ -13,6 +14,21 @@ abstract class BaseBindingFragment<_ViewDataBinding : ViewDataBinding> : Fragmen
     var binding: _ViewDataBinding? = null
 
     abstract val layoutResourceId: Int
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        requireActivity().onBackPressedDispatcher.addCallback(
+            this,
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    if (!onCustomBackPresses()) {
+                        this.isEnabled = false
+                        activity?.onBackPressed()
+                    }
+                }
+
+            })
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,5 +51,9 @@ abstract class BaseBindingFragment<_ViewDataBinding : ViewDataBinding> : Fragmen
     }
 
     abstract fun onViewBindingCreated()
+
+    protected open fun onCustomBackPresses(): Boolean {
+        return false
+    }
 
 }

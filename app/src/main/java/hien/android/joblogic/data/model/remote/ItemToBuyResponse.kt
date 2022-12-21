@@ -3,17 +3,17 @@ package hien.android.joblogic.data.model.remote
 
 import com.google.gson.annotations.SerializedName
 
-data class ItemBuyResponse(
+data class ItemToBuyResponse(
     @SerializedName("id")
     val id: Int?,
     @SerializedName("name")
     val _name: String?,
     @SerializedName("price")
-    val _price: Int?,
+    val _price: String?,
     @SerializedName("quantity")
     val _quantity: Int?,
     @SerializedName("type")
-    val type: Int?
+    val type: ItemTransactionType?
 ) {
 
     /**
@@ -26,7 +26,7 @@ data class ItemBuyResponse(
      * Avoid show null when binding data
      * */
     val price: String
-        get() = _price?.toString().orEmpty()
+        get() = _price.orEmpty()
 
     /**
      * Avoid show null when binding data

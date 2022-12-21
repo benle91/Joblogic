@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import hien.android.joblogic.data.model.entity.ItemToSell
+import hien.android.joblogic.data.model.entity.ItemToSellEntity
 import hien.android.joblogic.domain.base.onSuccess
 import hien.android.joblogic.domain.base.onThrowable
 import hien.android.joblogic.domain.usecase.GetItemsToSellUseCase
@@ -15,8 +15,8 @@ class SellViewModel constructor(
     private val getItemsToSellUseCase: GetItemsToSellUseCase
 ) : ViewModel() {
 
-    private val _itemsToSellLiveData = MutableLiveData<List<ItemToSell>>()
-    val itemsToSellLiveData: LiveData<List<ItemToSell>> = _itemsToSellLiveData
+    private val _itemsToSellLiveData = MutableLiveData<List<ItemToSellEntity>>()
+    val itemsToSellLiveData: LiveData<List<ItemToSellEntity>> = _itemsToSellLiveData
 
     private val _throwableLiveData = MutableLiveData<Throwable>()
     val throwableLiveData: LiveData<Throwable> = _throwableLiveData

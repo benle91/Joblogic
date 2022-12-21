@@ -6,14 +6,14 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import hien.android.joblogic.R
-import hien.android.joblogic.data.model.entity.ItemToSell
+import hien.android.joblogic.data.model.entity.ItemToSellEntity
 import hien.android.joblogic.databinding.ItemSellBinding
 
 class SellAdapter : RecyclerView.Adapter<SellViewHolder>() {
 
-    private val items = arrayListOf<ItemToSell>()
+    private val items = arrayListOf<ItemToSellEntity>()
 
-    fun submitItems(list: List<ItemToSell>) {
+    fun submitItems(list: List<ItemToSellEntity>) {
         items.clear()
         items.addAll(list)
         notifyDataSetChanged()
@@ -41,7 +41,7 @@ class SellAdapter : RecyclerView.Adapter<SellViewHolder>() {
 
 class SellViewHolder(private val binding: ViewDataBinding) : RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(item: ItemToSell) {
+    fun bind(item: ItemToSellEntity) {
         (binding as? ItemSellBinding)?.run {
             data = item
         }

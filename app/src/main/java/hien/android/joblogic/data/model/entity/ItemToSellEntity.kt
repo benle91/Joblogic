@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "ItemToSell")
-data class ItemToSell(
+data class ItemToSellEntity(
     @PrimaryKey
     @ColumnInfo(name = "id")
     val id: Int?,

@@ -32,7 +32,7 @@ class BuyFragment : BaseBindingFragment<FragmentBuyBinding>() {
 
     private fun handleEvent() = binding?.run {
         ibBack.setOnClickListener {
-            mMainViewModel.onBackClick()
+            onCustomBackPresses()
         }
     }
 
@@ -61,6 +61,11 @@ class BuyFragment : BaseBindingFragment<FragmentBuyBinding>() {
     private fun setUpAdapter() = binding?.run {
         rvList.setHasFixedSize(true)
         rvList.adapter = mAdapter
+    }
+
+    override fun onCustomBackPresses(): Boolean {
+        mMainViewModel.onBackClick()
+        return true
     }
 
 }

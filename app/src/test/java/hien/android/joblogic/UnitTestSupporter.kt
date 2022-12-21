@@ -1,6 +1,5 @@
 package hien.android.joblogic
 
-import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.TestCoroutineDispatcher
@@ -28,6 +27,7 @@ class MainCoroutineRule(
 }
 
 @ExperimentalCoroutinesApi
-fun MainCoroutineRule.runBlockingTest(block: suspend () -> Unit) = this.testDispatcher.runBlockingTest {
-    block()
-}
+fun MainCoroutineRule.runBlockingTest(block: suspend () -> Unit) =
+    this.testDispatcher.runBlockingTest {
+        block()
+    }

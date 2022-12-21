@@ -9,7 +9,7 @@ import kotlinx.coroutines.CoroutineDispatcher
 
 class GetItemsToCallUseCase constructor(
     private val repository: ApiRepository,
-    private val executionThread: CoroutineDispatcher? = null
+    executionThread: CoroutineDispatcher? = null
 ) : BaseFlowUseCase<String, List<ItemCallResponse>, List<ItemCallResponse>>(executionThread) {
 
     override suspend fun execute(parameters: String): RepositoryResult<List<ItemCallResponse>> {

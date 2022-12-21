@@ -1,6 +1,6 @@
 package hien.android.joblogic.domain.usecase
 
-import hien.android.joblogic.data.model.entity.ItemToSell
+import hien.android.joblogic.data.model.entity.ItemToSellEntity
 import hien.android.joblogic.domain.base.BaseFlowUseCase
 import hien.android.joblogic.domain.base.RepositoryResult
 import hien.android.joblogic.domain.base.UseCaseResult
@@ -9,15 +9,15 @@ import kotlinx.coroutines.CoroutineDispatcher
 
 class GetItemsToSellUseCase constructor(
     private val repository: SellRepository,
-    private val executionThread: CoroutineDispatcher? = null
-) : BaseFlowUseCase<String, List<ItemToSell>, List<ItemToSell>>(executionThread) {
+    executionThread: CoroutineDispatcher? = null
+) : BaseFlowUseCase<String, List<ItemToSellEntity>, List<ItemToSellEntity>>(executionThread) {
 
-    override suspend fun execute(parameters: String): RepositoryResult<List<ItemToSell>> {
+    override suspend fun execute(parameters: String): RepositoryResult<List<ItemToSellEntity>> {
         return repository.getItemsToSell()
     }
 
-    override suspend fun onSuccess(response: RepositoryResult.Success<List<ItemToSell>>): UseCaseResult.Success<List<ItemToSell>> {
-        return UseCaseResult.Success(response.data ?: emptyList<ItemToSell>())
+    override suspend fun onSuccess(response: RepositoryResult.Success<List<ItemToSellEntity>>): UseCaseResult.Success<List<ItemToSellEntity>> {
+        return UseCaseResult.Success(response.data ?: emptyList<ItemToSellEntity>())
     }
 
 }

@@ -5,7 +5,7 @@
 
         <variable
             name="data"
-            type="hien.android.joblogic.data.model.entity.ItemToSell" />
+            type="hien.android.joblogic.data.model.entity.ItemToSellEntity" />
     </data>
 
     <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"

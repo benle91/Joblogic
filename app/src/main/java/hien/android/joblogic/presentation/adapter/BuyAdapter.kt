@@ -6,14 +6,14 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import hien.android.joblogic.R
-import hien.android.joblogic.data.model.remote.ItemBuyResponse
+import hien.android.joblogic.data.model.remote.ItemToBuyResponse
 import hien.android.joblogic.databinding.ItemBuyBinding
 
 class BuyAdapter : RecyclerView.Adapter<BuyViewHolder>() {
 
-    private val items = arrayListOf<ItemBuyResponse>()
+    private val items = arrayListOf<ItemToBuyResponse>()
 
-    fun submitItems(list: List<ItemBuyResponse>) {
+    fun submitItems(list: List<ItemToBuyResponse>) {
         items.clear()
         items.addAll(list)
         notifyDataSetChanged()
@@ -41,7 +41,7 @@ class BuyAdapter : RecyclerView.Adapter<BuyViewHolder>() {
 
 class BuyViewHolder(private val binding: ViewDataBinding) : RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(item: ItemBuyResponse) {
+    fun bind(item: ItemToBuyResponse) {
         (binding as? ItemBuyBinding)?.run {
             data = item
         }

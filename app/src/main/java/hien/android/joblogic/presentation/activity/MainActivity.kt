@@ -13,6 +13,7 @@ import androidx.fragment.app.commit
 import hien.android.joblogic.R
 import hien.android.joblogic.presentation.fragment.buy.BuyFragment
 import hien.android.joblogic.presentation.fragment.call.CallFragment
+import hien.android.joblogic.presentation.fragment.home.HomeFragment
 import hien.android.joblogic.presentation.fragment.sell.SellFragment
 
 class MainActivity : AppCompatActivity(), OnClickListener {
@@ -42,7 +43,7 @@ class MainActivity : AppCompatActivity(), OnClickListener {
                     R.id.btnBuy -> BuyFragment.newInstance()
                     R.id.btnSell -> SellFragment.newInstance()
                     R.id.btnCall -> CallFragment.newInstance()
-                    else -> MainFragment()
+                    else -> HomeFragment.newInstance()
                 }, MAIN_BACK_STACK
             )
         }

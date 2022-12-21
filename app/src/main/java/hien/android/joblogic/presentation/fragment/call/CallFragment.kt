@@ -32,7 +32,7 @@ class CallFragment : BaseBindingFragment<FragmentCallBinding>() {
 
     private fun handleEvent() = binding?.run {
         ibBack.setOnClickListener {
-            mMainViewModel.onBackClick()
+            onCustomBackPresses()
         }
     }
 
@@ -61,6 +61,11 @@ class CallFragment : BaseBindingFragment<FragmentCallBinding>() {
     private fun setUpAdapter() = binding?.run {
         rvList.setHasFixedSize(true)
         rvList.adapter = mAdapter
+    }
+
+    override fun onCustomBackPresses(): Boolean {
+        mMainViewModel.onBackClick()
+        return true
     }
 
 }
